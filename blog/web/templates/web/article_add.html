@@ -1,0 +1,12 @@
+{% extends "web/home.html" %}
+
+{% block title %}Create new article{% endblock %}
+
+{% block content_for_user %}
+<h1>Create new article</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_div }}
+        <input type="submit" class="btn btn-primary" value="Save">
+    </form>
+{% endblock %}
