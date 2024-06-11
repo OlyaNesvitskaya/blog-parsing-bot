@@ -91,13 +91,6 @@ DATABASES = {
     }
 }
 
-'''DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / "db.sqlite3",
-    }
-}'''
-
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
@@ -139,6 +132,7 @@ USE_TZ = True
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'web.Profile'
+
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
@@ -157,7 +151,7 @@ EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 
 CRONJOBS = [
-    ('*/4 * * * *', 'web.parsing.main'),
+    ('*/4 * * * *', 'web.parsing.main', '>> ' + os.path.join(BASE_DIR, 'parsing_log/server.log' + ' 2>&1 ')),
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True

@@ -19,5 +19,6 @@ RUN pip install -r requirements.txt
 
 # copies files and directories from current directory to WORKDIR
 COPY . /app/
+RUN chmod a+rwx ./parsing_log
 
 

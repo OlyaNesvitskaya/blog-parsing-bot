@@ -66,12 +66,12 @@ class ParsingArticleModelTest(TestCase):
     def test_headline_max_length(self):
         parsing_article = ParsingArticle.objects.get(id=self.parsing_article.id)
         max_length = parsing_article._meta.get_field('headline').max_length
-        self.assertEqual(max_length, 120)
+        self.assertEqual(max_length, 1000)
 
     def test_url_max_length(self):
         parsing_article = ParsingArticle.objects.get(id=self.parsing_article.id)
         max_length = parsing_article._meta.get_field('url').max_length
-        self.assertEqual(max_length, 255)
+        self.assertEqual(max_length, 1000)
 
 
 class ProfileModelTest(TestCase):

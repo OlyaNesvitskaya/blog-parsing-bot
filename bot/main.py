@@ -88,7 +88,7 @@ def update_or_set_initial_data(
 if __name__ == "__main__":
     time.sleep(60)
     create_databases()
-    logger.info('База данных инициализирована')
+    logger.info('Start BOT')
     update_or_set_initial_data('article', url_latest_web_article)
     update_or_set_initial_data('parsingarticle', url_latest_site_article)
 

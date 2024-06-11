@@ -23,7 +23,7 @@ class Article(models.Model):
 
 
 class ParsingArticle(models.Model):
-    headline = models.CharField(max_length=120)
-    url = models.URLField(max_length=255, unique=True)
+    headline = models.CharField(max_length=1000)
+    url = models.URLField(max_length=1000, unique=True)
     added_date = models.DateTimeField(auto_now_add=True)
 

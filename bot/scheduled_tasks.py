@@ -52,7 +52,6 @@ def send_new_articles_to_user() -> None:
 
 def schedule_actions():
     schedule.every(5).minutes.do(send_new_articles_to_user)
-    print('Search for new articles to send to user')
     while True:
         schedule.run_pending()
         time.sleep(1)
@@ -65,5 +64,5 @@ if __name__ == "__main__":
             schedule_actions()
         except Exception as e:
             time.sleep(5)
-            logger.error(f'Ошибка обновления системы \n {e}')
+            logger.error(e)
         continue

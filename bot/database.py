@@ -8,10 +8,8 @@ def create_connection(db_name: str):
     connection = None
     try:
         connection = sqlite3.connect(db_name, check_same_thread=False)
-        cursor = connection.cursor()
-        print("Connection to SQLite DB successful")
     except Error as e:
-        print(f"The error '{e}' occurred")
+        logger.exception(f"The error '{e}' occurred")
 
     return connection
 
@@ -21,7 +19,6 @@ def execute_query(connection, query, params=tuple()):
     try:
         a = cursor.execute(query, params)
         connection.commit()
-        print("Query executed successfully")
         return a
     except Error as e:
         logger.error(f"The error '{e}' occurred")
