@@ -1,0 +1,62 @@
+html,
+body {
+  height: 100%;
+  background-image: url('../images/app_background.png');
+}
+
+.h{
+    display: flex;
+    background-color: #575150;
+    height: 50px;
+    color: white;
+    font-size: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.greetings{
+    color: white;
+    padding-left: 20px;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 20px;
+}
+.q{
+    display: flex;
+    padding-right: 25px;
+}
+.edit{
+    padding-right: 25px;
+    margin-right: 5px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.logout{
+    font-size: 15px;
+}
+
+.form-submit{
+    padding-top: 25px;
+}
+
+.field{font-weight:bold;}
+.error{color:red;}
+td{
+    word-break: break-all;
+}
+
+.container1{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    height: 70px;
+}
+
+.edit-article-disabled, .remove-article-disabled {
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+}

@@ -1,0 +1,42 @@
+{% extends "web/home.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content_for_user %}
+    <div class="container1">
+    <a href="{% url 'home' %} ">All_articles</a>
+    <a href="{% url 'article_add' %}" class="article_add">✍️ Add new article ✍️</a>
+    </div>
+
+    {% if object_list %}
+    <table class="table table-hover">
+        <thead>
+        <tr class="table-dark">
+            <th>Title</th>
+            <th>Content</th>
+            <th>Publication_date</th>
+            <th>User</th>
+            <th>Edit</th>
+            <th>Delete</th>
+
+        </tr>
+        <thead>
+        <tbody>
+        {% for article in object_list %}
+            <tr>
+                <td><a href="{% url 'article_detail' article.pk %}">{{ article.title }}</a></td>
+                <td>{{ article.content | truncatechars:50 }}</td>
+                <td>{{ article.publication_date }}</td>
+                <td>{{ article.profile.username }}</td>
+                {% if user.pk == article.profile_id %}
+                    <td><a href="{% url 'article_edit' article.pk %}" class="article_edit">✏️</a></td>
+                    <td><a href="{% url 'article_delete' article.pk %}" class="article_delete">❌</a></td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+        <tbody>
+    </table>
+    {% else %}
+        <p class="no-table">Articles hasn't had yet (((</p>
+    {% endif %}
+{% endblock %}

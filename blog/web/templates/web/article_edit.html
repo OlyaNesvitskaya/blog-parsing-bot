@@ -1,0 +1,11 @@
+{% extends "web/home.html" %}
+
+{% block title %}Edit article{% endblock %}
+
+{% block content_for_user %}
+<h1>Edit article</h1>
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" class="btn btn-primary" value="Update">
+</form>
+{% endblock %}

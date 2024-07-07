@@ -1,0 +1,14 @@
+{% extends "web/home.html" %}
+
+{% block title %}article{% endblock %}
+
+{% block content_for_user %}
+{% if user.is_authenticated %}
+    <h1>{{ object.title }}</h1>
+    <p>{{ object.content }}</p>
+{% else %}
+    <p>In order to be able to view articles you need to sign in</p>
+    <a href="{% url 'login' %}?next={{request.path}}">Sign in</a>
+    <a href="{% url 'register' %}?next={{request.path}}">Sign up</a>
+{% endif %}
+{% endblock %}
